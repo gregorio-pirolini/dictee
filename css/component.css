@@ -1,0 +1,107 @@
+*:focus{ outline: none;  
+}
+
+.dl2-menu{
+    text-align:left;
+}
+.dl2-menuwrapper .dl2-menu p{
+font-family:bp;
+-webkit-transition: text-shadow color 2s ease;
+-moz-transition: background-color 2s ease;
+-ms-transition: background-color 2s ease;
+-o-transition: background-color 2s ease;
+transition: background-color 2s ease;
+}
+ 
+.dl2-menuwrapper .dl2-menu p:hover{
+-webkit-transition: text-shadow color 1s ease;
+-moz-transition: background-color 1s ease;
+-ms-transition: background-color 1s ease;
+-o-transition: background-color 1s ease;
+transition: background-color 1s ease;
+background-color:rgba(00,00,00,0.3)!important;
+color:black; 	
+}
+
+/*all*/
+.dl2-menuwrapper {
+width:200px;
+}
+
+
+.dl2-menuwrapper {
+float:left;
+position:absolute;
+-webkit-perspective:1000px;
+-moz-perspective:1000px;
+perspective:1000px;
+-webkit-perspective-origin:50% 200%;
+-moz-perspective-origin:50% 200%;
+perspective-origin:50% 200%;
+}
+
+.dl2-menuwrapper ul{
+background: white;
+border:1px solid #000;
+list-style:none;
+-webkit-transform-style:preserve-3d;
+-moz-transform-style:preserve-3d;
+transform-style:preserve-3d;
+padding:0;
+}
+
+.dl2-menuwrapper li p{
+display:block;
+position:relative;
+}
+
+.dl2-menuwrapper li p {
+letter-spacing: .05em;
+line-height:.8em;
+outline:none;
+padding:.25em .25em;
+}
+
+.dl2-menuwrapper .dl2-menu.dl2-menu-toggle{
+-webkit-transition: all 0.3s ease;
+-moz-transition: all 0.3s ease;
+transition: all 0.3s ease;
+}
+
+.dl2-menuwrapper .dl2-menu.dl2-menuopen  {
+opacity: 1;
+/*pointer-events: auto;*/
+-webkit-transform: translateY(0px);
+-moz-transform: translateY(0px);
+transform: translateY(0px);
+}
+
+
+
+ 
+
+
+.dl2-menuwrapper .dl2-menu {
+ 
+position:absolute;
+width:100%;
+opacity:0;
+/*pointer-events:none;*/
+
+-webkit-transform:translateY(10px);
+-moz-transform:translateY(10px);
+transform:translateY(10px);
+-webkit-backface-visibility:hidden;
+-moz-backface-visibility:hidden;
+backface-visibility:hidden;
+margin:0;
+}
+
+.dl2-menuwrapper .dl2-menu p:hover {
+ cursor:default;   
+}
+ 
+.dl2-menuwrapper  .dl2-menuopen p:hover {
+ cursor:pointer;
+}
+ 
