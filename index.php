@@ -1,16 +1,13 @@
 <?php
+session_start();
 require("php/db_connect.php");
 // At the top of the page we check to see whether the user is logged in or not
-    if(empty($_SESSION['user']))
-    {
-        // If they are not, we redirect them to the login page.
-        header("Location: login.php");
-        
-        // Remember that this die statement is absolutely critical.  Without it,
-        // people can view your members-only content without logging in.
-       die("Redirecting to login.php");
-    }
-    
+   // Check if the user is logged in
+if (empty($_SESSION['user'])) {
+  header("Location: login.php");
+  die("Redirecting to login.php");
+}
+$timestamp = time();  
     // Everything below this point in the file is secured by the login system
     
     // We can display the user's username to them by reading it from the session array.  Remember that because
@@ -30,8 +27,8 @@ require("php/db_connect.php");
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
 <script type="text/javascript" src="js/modernizr.custom.js"></script>
 <script src="http://www.youtube.com/player_api"></script>
-<script type="text/javascript" src="js/variables.js"></script>
-<script type="text/javascript" src="js/dmWeb.js"></script>
+<script type="text/javascript" src="js/variables.js?v=<?php echo $timestamp; ?>"></script>
+<script type="text/javascript" src="js/dmWeb.js?v=<?php echo $timestamp; ?>"></script>
 
 </head>
 <body>
@@ -61,11 +58,10 @@ require("php/db_connect.php");
 
  <div id="dialog-message" title="Download complete">
   <p>
- Your files have downloaded successfully into the My Downloads folder.
+  
   </p>
-  <p>
-    Currently using <b>36% of your storage space</b>.
-  </p>
+   
+    
 </div>
 </div>
 </body></html>

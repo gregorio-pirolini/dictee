@@ -1,15 +1,30 @@
 <?php
+function wordslist($dataAll) {
+    if (count($dataAll) < 1) { 
+        return ''; 
+    }
+    $str = "AND w.word not in (";
+    for ($i = 0; $i < count($dataAll); $i++) {
+        // Enclose each word in single quotes and escape any quotes within the words
+        $str .= "'" . addslashes($dataAll[$i]['word']) . "',";
+    }
+    // Remove the last comma and close the parentheses
+    $modifiedString = substr($str, 0, -1) . ")";
+    
+    return $modifiedString;
+}
+
 
 function doLevels($letter){
     if($letter=='A'){
-       $levels="the_words.`level`='A'"; 
+       $levels="w.`level`='A'"; 
     }else if ($letter=='B'){  
-$levels="(the_words.`level`='A' or the_words.`level`='B')";
+$levels="(w.`level`='A' OR w.`level`='B')";
  }else if ($letter=='C'){  
-$levels="(the_words.`level`='A' or the_words.`level`='B' or the_words.`level`='C')";
+$levels="(w.`level`='A' OR w.`level`='B' OR w.`level`='C')";
 }else if ($letter=='D'){  
-$levels="(the_words.`level`='A' or the_words.`level`='B' "
-        . "or the_words.`level`='C' or the_words.`level`='D')";
+$levels="(w.`level`='A' OR w.`level`='B' "
+        . "OR w.`level`='C' OR w.`level`='D')";
 }
 //  echo $levels;
 return $levels;
@@ -37,7 +52,7 @@ function calculatePercent($totalA, $totalG){
     return $levels; 
  }
  
- function strip_tags_trim($var){
-   $secureVar=strip_tags( trim( $var ) );
+ function strip_tags_trim($var) {
+     $secureVar = strip_tags(trim($var));
      return $secureVar;    
  }

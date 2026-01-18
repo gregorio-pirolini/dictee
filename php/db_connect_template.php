@@ -2,14 +2,9 @@
 // Database connection settings
 $host = "localhost";
 $username = "root";
-$password = "greg2023";
-$dbname = "dictee";
+$password = "xxxxx";
+$dbname = "xxxxxx";
 
-// Uncomment these lines if using a different database configuration
-// $host = "rdbms.strato.de";
-// $username = "U1210398";
-// $password = "dictee_magique2";
-// $dbname = "DB1210398";
 
 try {
     // Corrected variable names from $servername and $connname to $host and $dbname

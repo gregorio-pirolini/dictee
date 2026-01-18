@@ -1,38 +1,56 @@
 <?php
-require("db_connect.php");
-// print_r($_SESSION);
-$dataAll=[]; 
-//echo'<br>';
-//$id=$_SESSION['user']['id'];
-$id= $_SESSION['user']['id'];
-//echo '$id: '. $id.'<br>';
-$sql = "select level,audio from pointslevel WHERE user_id='$id'";
-//echo '$sql'.$sql.'<br>';
-//$result = $db->query($sql);
-$result = $db->query($sql);
-//if ($result->num_rows > 0) {
-//    $row=$result->fetch_assoc();
-while ($row = $result->fetch()) {
-    
-       $level=$row["level"];
-       $audio=$row["audio"];
-//      echo $row["points"].'<br>';
-//      echo '</br>'.$newPoints.'<br>';
-            
- 
-$dataAll['level']=$level;
-$dataAll['username']=$_SESSION['user']['username'];
-$dataAll['id']=$_SESSION['user']['id'];
-$dataAll['audio']=$audio;
+session_start();
+require_once "db_connect.php";   // make sure path is correct
 
-//echo '$level'+ $level;
-//echo '$dataAll[username]'+ $dataAll['username'];
-//echo '$dataAll[id]'+ $dataAll['id'];
+header('Content-Type: application/json; charset=utf-8');
+
+// Default response structure
+$data = [
+    'level'    => null,
+    'username' => null,
+    'id'       => null,
+    'audio'    => null,
+];
+
+// Check if user is logged in
+if (!isset($_SESSION['user']) || !is_object($_SESSION['user']) || empty($_SESSION['user']->id)) {
+    $data['error'] = 'User not logged in or session invalid';
+    echo json_encode($data);
+    exit;
 }
-echo json_encode($dataAll);    
+// $userId =   $_SESSION['user']->id;          
+$userId = (int) $_SESSION['user']->id;          // force integer
+$username = $_SESSION['user']->username ?? '';  // fallback
 
+try {
+    $stmt = $db->prepare("
+        SELECT level, audio 
+        FROM pointslevel 
+        WHERE user_id = :id
+        LIMIT 1
+    ");
 
+    $stmt->execute([':id' => $userId]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-       
-    
-    
+    if ($row !== false) {
+        $data['level']    = $row['level'] ?? null;
+        $data['audio']    = $row['audio'] ?? null;
+    } else {
+        // Optional: log or set default values
+        $data['level'] = 'A';           // ← you can choose a default
+        $data['audio'] = 50;            // ← example default
+        // or leave as null if you prefer
+    }
+
+    // Always fill these from session
+    $data['username'] = $username;
+    $data['id']       = $userId;
+
+} catch (PDOException $e) {
+    // In production you might want to log this instead of exposing
+    $data['error'] = 'Database error';
+    // error_log("getUserInfo error: " . $e->getMessage());
+}
+
+echo json_encode($data);

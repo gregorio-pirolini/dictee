@@ -173,18 +173,12 @@ include_once 'php/functions.php';
         }
         
         // This redirects the user back to the login page after they register
-        include_once "newTable.php";
-        
-        
-        
-        
-        
         header("Location: login.php");
         
         // Calling die or exit after performing a redirect using the header function
         // is critical.  The rest of your PHP script will continue to execute and
         // will be sent to the user if you do not die or exit.
-        die("Redirecting to login.php");
+       die("Redirecting to login.php");
     }
     
 ?>
