@@ -55,7 +55,7 @@ Dictée Magique is an interactive French spelling dictation game designed to hel
 ## Installation
 
 1. **Database Setup**:
-   - Import `DB1210398.sql` into your MySQL database
+   - Import `DB.sql` into your MySQL database
    - Configure database connection in `php/db_connect.php`
 
 2. **File Structure**:
@@ -103,7 +103,7 @@ dictee/
 ├── js/                   # JavaScript files
 ├── php/                  # Server-side logic
 ├── pix/                  # Images and icons
-└── DB1210398.sql         # Database schema
+└── DB.sql         # Database schema
 ```
 
 ## Gameplay Mechanics

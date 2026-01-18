@@ -1,0 +1,20 @@
+# --- secrets / config ---
+php/db_connect.php
+db-connect.php
+**/*db_connect*.php
+**/*db-connect*.php
+.env
+.env.*
+
+ 
+
+# --- logs / tmp ---
+*.log
+tmp/
+cache/
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
