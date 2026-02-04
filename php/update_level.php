@@ -13,6 +13,9 @@ if ( isset( $_POST['userId'] ) ){
 try {
     // Prepare the SQL statement
     $sql = "SELECT COUNT(level) AS total FROM words WHERE level = :level";
+    if ($db === null) {
+        throw new Exception("Database connection failed");
+    }
     $stmt = $db->prepare($sql);
 
     // Bind the level parameter
@@ -49,6 +52,9 @@ try {
    //  echo '<br>$sql2: ' . htmlspecialchars($sql2) . '<br>';
 
    // Prepare the statement
+    if ($db === null) {
+        throw new Exception("Database connection failed");
+    }
    $stmt = $db->prepare($sql2);
 
    // Bind the level parameter
@@ -73,12 +79,11 @@ try {
 // Close the PDO connection (optional, PDO connection closes automatically at script end)
 
 $reussite=calculatePercent($totalAll, $totalUser);
- if($reussite>90){
-   echo 'Félicitations: tu passes au niveau suivant!'.$totalAll.' '.$totalUser.' '.$reussite;}
- else{
-     echo 'Termine ce niveau pour passer au suivant... $totalAll:'.$totalAll.' $totalGood:'.$totalUser.' $reussite:'.$reussite;
-//             $totalAll.' '.$totalGood.' '.$reussite;
- }
+if($reussite>90){
+   echo 'Ce niveau a '.$totalAll.' mots. tu en as: '.$totalUser.' corrects. -> '.$reussite.'% de réussite. </br>Félicitations: tu passes au niveau suivant! ';
+} else {
+   echo 'Termine ce niveau pour passer au suivant... Ce niveau a '.$totalAll.' mots. tu en as: '.$totalUser.' corrects. -> '.$reussite.'% de réussite.';
+}
 
 $db = null;
 ?>

@@ -172,6 +172,41 @@ include_once 'php/functions.php';
             die("Failed to run query: " . $ex->getMessage());
         }
         
+$query2 = "
+            INSERT INTO pointslevel (
+                user_id,
+                level,
+                points,
+                audio
+            ) VALUES (
+                :user_id,
+                :level,
+                :points,
+                :audio
+            )
+        ";
+
+$query2_params = array(
+            ':user_id' => $db->lastInsertId(),
+            ':level' => 'A',
+            ':points' => 0,
+            ':audio' => 50
+        );
+        
+        try
+        {
+            // Execute the query to create the user
+            $stmt = $db->prepare($query2);
+            $result = $stmt->execute($query2_params);
+        }
+        catch(PDOException $ex)
+        {
+            // Note: On a production website, you should not output $ex->getMessage().
+            // It may provide an attacker with helpful information about your code. 
+            die("Failed to run query: " . $ex->getMessage());
+        }
+
+
         // This redirects the user back to the login page after they register
         header("Location: login.php");
         

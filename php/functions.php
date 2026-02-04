@@ -1,32 +1,25 @@
 <?php
-function wordslist($dataAll) {
-    if (count($dataAll) < 1) { 
-        return ''; 
-    }
-    $str = "AND w.word not in (";
-    for ($i = 0; $i < count($dataAll); $i++) {
-        // Enclose each word in single quotes and escape any quotes within the words
-        $str .= "'" . addslashes($dataAll[$i]['word']) . "',";
-    }
-    // Remove the last comma and close the parentheses
-    $modifiedString = substr($str, 0, -1) . ")";
-    
-    return $modifiedString;
-}
 
 
 function doLevels($letter){
-    if($letter=='A'){
-       $levels="w.`level`='A'"; 
-    }else if ($letter=='B'){  
-$levels="(w.`level`='A' OR w.`level`='B')";
- }else if ($letter=='C'){  
-$levels="(w.`level`='A' OR w.`level`='B' OR w.`level`='C')";
+if($letter=='A'){
+    $levels="w.`level` in ('A')"; 
+}else if ($letter=='B'){  
+    $levels="w.`level` in ('A','B')"; 
+}else if ($letter=='C'){  
+    $levels="w.`level` in ('A','B','C')"; 
 }else if ($letter=='D'){  
-$levels="(w.`level`='A' OR w.`level`='B' "
-        . "OR w.`level`='C' OR w.`level`='D')";
-}
-//  echo $levels;
+    $levels="w.`level` in ('A','B','C','D')"; 
+}else if ($letter=='E'){  
+    $levels="w.`level` in ('B','C','D','E')"; 
+}else if ($letter=='F'){  
+    $levels="w.`level` in ('C','D','E','F')"; 
+}else if ($letter=='G'){  
+     $levels="w.`level` in ('D','E','F','G')"; 
+}else if ($letter=='H'){  
+    $levels=$levels="w.`level` in ('E','F','G','H')"; 
+}else if ($letter=='I'){  
+    $levels=$levels="w.`level` in ('E','F','G','H','I')"; } //  echo $levels;
 return $levels;
 }
 

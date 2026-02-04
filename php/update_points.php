@@ -18,6 +18,9 @@ if (isset($_POST['id'])) {
 try {
     // Prepare the SQL statement to select the current points
     $sql = "SELECT points FROM pointslevel WHERE user_id = :id";
+    if ($db === null) {
+        throw new Exception("Database connection failed");
+     }
     $stmt = $db->prepare($sql);
 
     // Bind the parameter

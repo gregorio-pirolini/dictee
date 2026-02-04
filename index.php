@@ -20,7 +20,7 @@ $timestamp = time();
 <link rel="icon" href="pix/dictee_yZp_icon.ico" type="image/x-icon" />
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
-<link rel="stylesheet" href="css/main.css"/> 
+<link rel="stylesheet" href="scss/main.css"/> 
 <link rel="stylesheet" type="text/css" href="css/component.css" /> 
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>

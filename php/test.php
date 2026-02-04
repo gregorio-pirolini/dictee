@@ -24,7 +24,7 @@ function doLevels($letter) {
     if ($letter === 'B') return "(w.`level` = 'A' OR w.`level` = 'B')";
     if ($letter === 'C') return "(w.`level` = 'A' OR w.`level` = 'B' OR w.`level` = 'C')";
     if ($letter === 'D') return "(w.`level` = 'A' OR w.`level` = 'B' OR w.`level` = 'C' OR w.`level` = 'D')";
-
+    if ($letter === 'E') return "(w.`level` = 'A' OR w.`level` = 'B' OR w.`level` = 'C' OR w.`level` = 'D' OR w.`level` = 'E'))";
     // fallback when bad input
     return "1=1";
 }

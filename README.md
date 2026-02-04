@@ -55,7 +55,7 @@ Dictée Magique is an interactive French spelling dictation game designed to hel
 ## Installation
 
 1. **Database Setup**:
-   - Import `DB.sql` into your MySQL database
+   - Import `dictee2026.sql` into your MySQL database
    - Configure database connection in `php/db_connect.php`
 
 2. **File Structure**:

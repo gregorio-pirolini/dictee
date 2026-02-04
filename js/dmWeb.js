@@ -2,7 +2,7 @@ jQuery.noConflict(); //$ freigegeben
 jQuery(document).ready(function ($) {
 	let wordAsked;
 
-	const aLevels = ["A", "B", "C", "D"];
+	const aLevels = ["A", "B", "C", "D", "E", "F", "G", "H","i","J","K"]; //levels available,
 	let levels; // aLevels[1]='A'
 	let $level; //ABCD
 	let $user; //data['username']; bzw gregorio
@@ -352,7 +352,9 @@ jQuery(document).ready(function ($) {
 		aAskedWords = [];
 
 		//pick 15 words in arr
+		console.log('aLevels[levels] ' + aLevels[levels])
 		findRandomeWords(aLevels[levels]);
+
 	}
 	function shuffleArray(array) {
 		return array;

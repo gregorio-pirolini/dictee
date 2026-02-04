@@ -13,6 +13,10 @@ $aNow = explode('-', $now);
 $timeForDb = mktime(0, 0, 0, $aNow[1], $aNow[2], $aNow[0]);
 
 try {
+    if ($db === null) {
+        throw new Exception("Database connection failed");
+    }
+
     $sql = "UPDATE words_users
             SET words_number = :val, 
                 last_asked = :timeForDb     
