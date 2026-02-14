@@ -80,7 +80,7 @@ try {
 
 $reussite=calculatePercent($totalAll, $totalUser);
 if($reussite>90){
-   echo 'Ce niveau a '.$totalAll.' mots. tu en as: '.$totalUser.' corrects. -> '.$reussite.'% de réussite. </br>Félicitations: tu passes au niveau suivant! ';
+   echo 'Ce niveau a '.$totalAll.' mots. tu en as: '.$totalUser.' corrects. -> '.round($reussite).'% de réussite. </br>Félicitations: tu passes au niveau suivant! ';
 } else {
    echo 'Termine ce niveau pour passer au suivant... Ce niveau a '.$totalAll.' mots. tu en as: '.$totalUser.' corrects. -> '.$reussite.'% de réussite.';
 }

@@ -17,9 +17,17 @@ if($letter=='A'){
 }else if ($letter=='G'){  
      $levels="w.`level` in ('D','E','F','G')"; 
 }else if ($letter=='H'){  
-    $levels=$levels="w.`level` in ('E','F','G','H')"; 
+   $levels="w.`level` in ('E','F','G','H')"; 
 }else if ($letter=='I'){  
-    $levels=$levels="w.`level` in ('E','F','G','H','I')"; } //  echo $levels;
+   $levels="w.`level` in ('E','F','G','H','I')";
+}else if ($letter=='J'){  
+   $levels="w.`level` in ('E','F','G','H','I','J')";  
+}else if ($letter=='K'){  
+   $levels="w.`level` in ('E','F','G','H','I','J','K')";  
+}else if ($letter=='L'){  
+   $levels="w.`level` in ('E','F','G','H','I','J','K','L')";  
+   } //  echo $levels;
+ //  echo $levels;
 return $levels;
 }
 

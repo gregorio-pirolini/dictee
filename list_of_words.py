@@ -3,7 +3,6 @@ import re
 import time
 import unicodedata
 from pathlib import Path
-
 import requests
 
 # https://vitrinelinguistique.oqlf.gouv.qc.ca/23722/lorthographe/problemes-lies-aux-consonnes/les-graphies-possibles-du-son-s
@@ -17,44 +16,17 @@ VOICE = "fr-FR"  # French (France)
 
 
 
+
 WORDS= [ 
-    bisexué
-    cosignataire
-    parasol
-    resaler
-    rétrospectif
-    télésiège
-
-bissextile
-
-express
-motocross
-stress
-
-    agaçant
-    aperçu
-    façade
-    façonner
-    fiançailles
-    gerçure
-    glaçage
-    hameçon
-    maçon
-    perçu
-    préconçu
-    reçu
-    soupçon 
-
-hérisson
-nourrisson
-Pâtisson
+'chauffeurr'
 
 
-#  mot en -emment -ammant
+
+# mot en -emment -ammant
 # mot en -tion et -ssion
 # mot avec double consonnes
-# mots commençant par H  
-# H à l'intérieur d un mot
+    # mots commençant par H  
+    # H à l'intérieur d un mot
 # mot avec double voyelle
 #e accent ou e double consonne
 # ill ou y  https://www.francaisfacile.com/exercices/exercice-francais-2/exercice-francais-100448.php

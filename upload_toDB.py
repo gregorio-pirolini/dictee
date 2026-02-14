@@ -12,57 +12,41 @@ conn = mysql.connector.connect(
 
 cur = conn.cursor()
 
+
 WORDS= [ 
-'amazone',
-'argot',
-'arôme',
-'atome',
-'aumône',
-'autonome',
-'axiome',
-'binôme',
-'bohème',
-'chrome',
-'chômage',
-'clone',
-'clôture',
-'complot',
-'contrôle',
-'cyclone',
-'cône',
-'côte',
-'côtoyer',
-'diplôme',
-'dose',
-'drone',
-'drôle',
-'dévot',
-'dôme',
-'enjôleur',
-'entrepôt',
-'fantôme',
-'frôler',
-'hippodrome',
-'hublot',
-'hôpital',
-'hôte',
-'icône',
-'impôt',
-'môme',
-'neurone',
-'ozone',
-'pôle',
-'rôle',
-'silicone',
-'tantôt',
-'théorème',
-'toit',
-'tricot',
-'trône',
-'tôle',
-'zone',
-'ôter'
-  ] 
+'athlète', 
+'diarrhée', 
+'bonhomme', 
+'cathédrale', 
+'envahir', 
+'labyrinthe', 
+'méthode', 
+'orthographe', 
+'panthère', 
+'rhume', 
+'rythme', 
+'silhouette', 
+'souhait', 
+'adhérer',
+'chauffeur',
+'chronique',
+'cohérence',
+'philosophie',
+'psychologie',
+'architecture',
+'orchestre',
+'archaïque',
+'esthétique',
+'hypothèse',
+'pathologie',
+'sympathique',
+'authentique',
+'ahurissant',
+'cohabiter',
+'inhabituel',
+'malhonnête',
+'déshabiller'
+]
 
 mysql.connector.connect(
     host="localhost",
@@ -75,8 +59,8 @@ mysql.connector.connect(
 cur = conn.cursor()
 
 for word in WORDS:
-    level = "H"
-    folder = "mots/H"
+    level = "K"
+    folder = "mots/K"
 
     cur.execute(
         "INSERT INTO words (id, word, folder, level) VALUES (%s, %s, %s, %s)",

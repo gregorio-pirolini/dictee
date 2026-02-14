@@ -48,7 +48,7 @@ const aKeys=[
     ['ù',       '249',      'yellow',       '',         '',             'letter', ''],
     ['ü',       '252',      'yellow',       '',         '',             'letter', ''],
     ['-',       '45',       'lightpink',    '',         '',             'letter', ''],
-   // ["'",'39','lightpink','','','letter', ''],
+    ["'",       '39',       'lightpink',    '',         '',            'letter', ''],
     ['⇧',       '16',       'lightblue',    'MAJUSCULE','',             'befehl', ''],
     ['←',       '8',        'red',          'EFFACE',   '',             'befehl', ''],
     ['↲',       '13',       'red',          'ESSAYE',   '',             'befehl']

@@ -2,7 +2,7 @@ jQuery.noConflict(); //$ freigegeben
 jQuery(document).ready(function ($) {
 	let wordAsked;
 
-	const aLevels = ["A", "B", "C", "D", "E", "F", "G", "H","i","J","K"]; //levels available,
+	const aLevels = ["A", "B", "C", "D", "E", "F", "G", "H","I","J","K", "L"]; //levels available,
 	let levels; // aLevels[1]='A'
 	let $level; //ABCD
 	let $user; //data['username']; bzw gregorio
@@ -18,7 +18,7 @@ jQuery(document).ready(function ($) {
 	var marche;
 	var aide;
 	var regexLetterAllowed = new RegExp(
-		/^[\'|[a-zA-Z]|à|â|ç|ë|é|è|ê|î|ï|ô|œ|û|ù|ü|-|]$/
+		/^[\'|[a-zA-Z]|à|â|ç|ë|é|è|ê|î|ï|ô|œ|Œ|û|ù|ü|-|]$/
 	);
 	var aCorrectionToSpeak;
 	var tried = 0; //number of tries min 0 max 2

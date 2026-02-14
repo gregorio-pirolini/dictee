@@ -1,10 +1,16 @@
 <?php
 // Database connection settings
-$host = "localhost";
-$username = "root";
-$password = "greg2023";
-$dbname = "dictee";
+// $host = "localhost";
+// $username = "root";
+// $password = "greg2023";
+// $dbname = "dictee";
 
+
+
+$host = "127.0.0.1";
+$dbname = "dictee";
+$username = "dictee_user";
+$password = "MyDictee!2026";
 // Uncomment these lines if using a different database configuration
 // $host = "rdbms.strato.de";
 // $username = "U1210398";
